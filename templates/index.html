@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gemini Chat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <!-- ── Sidebar ── -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-gem">
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="14,2 26,9 26,19 14,26 2,19 2,9" fill="url(#gemGrad)" />
+          <polygon points="14,6 22,11 22,17 14,22 6,17 6,11" fill="rgba(255,255,255,0.15)" />
+          <defs>
+            <linearGradient id="gemGrad" x1="2" y1="2" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#7C6AF7"/>
+              <stop offset="100%" stop-color="#4FC3F7"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <span class="logo-text">Gemini Chat</span>
+    </div>
+
+    <div class="sidebar-section">
+      <span class="sidebar-label">Status</span>
+      <div class="status-row">
+        <div class="status-dot" id="statusDot"></div>
+        <span class="status-text" id="statusText">Connecting…</span>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <span class="sidebar-label">Capabilities</span>
+      <ul class="cap-list">
+        <li class="cap-item">
+          <span class="cap-icon">🧠</span>
+          <span>Multi-turn memory</span>
+        </li>
+        <li class="cap-item">
+          <span class="cap-icon">🔍</span>
+          <span>Real-time web search</span>
+        </li>
+        <li class="cap-item">
+          <span class="cap-icon">⚡</span>
+          <span>Gemini 1.5 Flash</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sidebar-section">
+      <span class="sidebar-label">Quick Searches</span>
+      <div class="quick-btns">
+        <button class="quick-btn" data-msg="What is the current price of Bitcoin?">₿ Bitcoin price</button>
+        <button class="quick-btn" data-msg="What is the weather in Mumbai today?">🌤 Mumbai weather</button>
+        <button class="quick-btn" data-msg="What are the latest AI news today?">📰 AI news</button>
+        <button class="quick-btn" data-msg="What is the USD to INR exchange rate today?">💱 USD/INR rate</button>
+      </div>
+    </div>
+
+    <div class="sidebar-footer">
+      <div id="turnCounter" class="turn-counter">0 turns</div>
+      <button class="clear-btn" id="clearBtn">Clear conversation</button>
+    </div>
+  </aside>
+
+  <!-- ── Main chat area ── -->
+  <main class="main">
+    <header class="chat-header">
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <h1 class="chat-title">Ask anything</h1>
+      <div class="search-badge" id="searchBadge" style="display:none">
+        <span class="badge-dot"></span> Live search active
+      </div>
+    </header>
+
+    <div class="messages" id="messages">
+      <div class="welcome-state" id="welcomeState">
+        <div class="welcome-gem">
+          <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="28,4 52,18 52,38 28,52 4,38 4,18" fill="url(#wGrad)" opacity="0.9"/>
+            <polygon points="28,12 44,22 44,34 28,44 12,34 12,22" fill="rgba(255,255,255,0.12)"/>
+            <defs>
+              <linearGradient id="wGrad" x1="4" y1="4" x2="52" y2="52" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#7C6AF7"/>
+                <stop offset="100%" stop-color="#4FC3F7"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <h2>How can I help you today?</h2>
+        <p>I remember our conversation and can search the web for live data — prices, weather, news, and more.</p>
+      </div>
+    </div>
+
+    <div class="input-area">
+      <div class="input-wrapper">
+        <textarea
+          id="userInput"
+          class="user-input"
+          placeholder="Ask me anything…"
+          rows="1"
+          autofocus
+        ></textarea>
+        <button class="send-btn" id="sendBtn" aria-label="Send">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 10L17 3L10 17L9 11L3 10Z" fill="currentColor"/>
+          </svg>
+        </button>
+      </div>
+      <p class="input-hint">Press <kbd>Enter</kbd> to send · <kbd>Shift+Enter</kbd> for new line</p>
+    </div>
+  </main>
+
+  <script src="/static/js/main.js"></script>
+</body>
+</html>
