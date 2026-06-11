@@ -1,4 +1,4 @@
-# Gemini Chat — Real-Time AI Chatbot
+# Chat — Real-Time AI Chatbot
 
 A Python + Flask web app powered by **Google Gemini 1.5 Flash** with:
 - **Conversation memory** — full multi-turn chat history per session
